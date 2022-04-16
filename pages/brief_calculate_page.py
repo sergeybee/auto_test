@@ -1,12 +1,12 @@
-from .base_page import BasePage
 from .locators import LocatorsBriefCalculate
 from .settings import SettingsDataSet as SD
 
 
-# Вводим данные в блок КРАТКОГО РАСЧЕТА
-class EnteringDataBriefCalculateBlock(BasePage):
+# Ввод данных в блок "Краткий расчёт"
+class BriefCalculateCredit():
+
     # Заполняем поля Сумма, Взнос и Срок кредита
-    def entering_data_in_brief_calculate(self):
+    def enter_data_in_brief_calculate(self):
         field_desired_loan = self.browser.find_element(*LocatorsBriefCalculate.FIELD_DESIRED_IOAN_LOC)
         field_desired_loan.clear()
         field_desired_loan.send_keys(SD.FIELD_DESIRED_IOAN)

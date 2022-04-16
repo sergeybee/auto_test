@@ -1,10 +1,9 @@
-from .base_page import BasePage
 from .locators import LocatorsResultCalculate
 from .settings import SettingsDataSet as SD
 
 
-# Проверяем полученные данные в блоке "Результат расчёта"
-class CheckResultCalculateBlock(BasePage):
+# Проверка полученных данных в блоке "Результат расчёта"
+class ResultCalculateCredit():
 
     def check_message_result_calculate(self):
         field_desired_loan = self.browser.find_element(*LocatorsResultCalculate.CREDIT_MESSAGE_LOC).text
@@ -26,12 +25,13 @@ class CheckResultCalculateBlock(BasePage):
         payments_loan_period = self.browser.find_element(*LocatorsResultCalculate.PAYMENTS_IOAN_PERIOD_LOC).text
         assert payments_loan_period == SD.PAYMENTS_IOAN_PERIOD, "Выплаты за весь срок кредита не совпадают"
 
+    # Вызываем методы проверки результатов расчёта
     def check_all_result_calculate_credit(self):
-        self.check_message_result_calculate()
-        self.check_credit_rate()
-        self.check_credit_monthly_payment_full()
-        self.check_credit_overpayment()
-        self.check_payments_loan_period()
+        self.check_message_result_calculate()       # Проверяем, что есть сообщение "Кредит предварительно одобрен"
+        self.check_credit_rate()                    # Проверяем, что процентная ставка совпадает с данными тест-кейса
+        self.check_credit_monthly_payment_full()    # Проверяем, что ежемесячный платеж совпадает с данными тест-кейса
+        self.check_credit_overpayment()             # Проверяем, что переплата по кредиту совпадает с данными тест-кейса
+        self.check_payments_loan_period()           # Проверяем, что выплаты за весь срок кредита совпадает с тест-кейсом
 
 
 

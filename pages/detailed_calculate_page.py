@@ -1,13 +1,13 @@
-from .base_page import BasePage
 from selenium.webdriver.support.ui import Select
 from .locators import LocatorsDetailedCalculate
 from .settings import SettingsDataSet as SD
 
 
-# Заполняем анкету в блоке "ДЕТАЛЬНЫЙ РАСЧЕТ"
-class DetailedCalculateCredit(BasePage):
+# Ввод данных в блок "Детальный расчёт"
+class DetailedCalculateCredit():
 
-    def entering_data_in_detailed_calculate(self):
+    # Заполняем поля анкеты подробного расчёта
+    def enter_data_in_detailed_calculate(self):
         # Заполняем ФИО и паспортные данные
         second_name = self.browser.find_element(*LocatorsDetailedCalculate.SECOND_NAME_LOC)
         second_name.clear()
