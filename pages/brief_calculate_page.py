@@ -1,9 +1,9 @@
 from .locators import LocatorsBriefCalculate
-from .settings import SettingsDataSet as SD
+from .config import SettingsDataSet as SD
 
 
 # Ввод данных в блок "Краткий расчёт"
-class BriefCalculateCredit():
+class BriefCalculateCredit:
 
     # Заполняем поля Сумма, Взнос и Срок кредита
     def enter_data_in_brief_calculate(self):

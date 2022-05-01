@@ -14,11 +14,11 @@ class BasePage:
 
     # Проверяем, что находимся на сайте "Кредитный калькулятор"
     def should_be_site_credit_calculate(self):
-        assert "creditcalculator.pointschool.ru" in self.browser.current_url, "This is not a url"
+        assert "creditcalculator.pointschool.ru" in self.browser.current_url, "Не тот адрес сайта"
 
     # Проверяем, что есть кнопка "Рассчитать"
     def should_be_btn_calculate(self):
-        assert self.browser.find_element(*GeneralLocators.BTN_CALCULATE_LOC), "This is not BTN_CALCULATE element"
+        assert self.browser.find_element(*GeneralLocators.BTN_CALCULATE_LOC), "Нет кнопки BTN_CALCULATE"
 
     # Нажимаем на кнопку "Рассчитать"
     def btn_calculate_credit_click(self):
@@ -31,10 +31,3 @@ class BasePage:
     # Нажимаем на кнопку-ссылку "Заполнить анкету"
     def link_to_question_form_click(self):
         self.browser.find_element(*GeneralLocators.LINK_ANKET_LOC).click()
-
-    def all_methods(self):
-        self.should_be_site_credit_calculate()
-        self.should_be_btn_calculate()
-        self.btn_calculate_credit_click()
-        self.should_be_link_to_question_form()
-        self.link_to_question_form_click()

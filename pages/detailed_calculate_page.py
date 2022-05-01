@@ -1,6 +1,7 @@
 from selenium.webdriver.support.ui import Select
 from .locators import LocatorsDetailedCalculate
-from .settings import SettingsDataSet as SD
+from .config import SettingsDataSet as SD
+from .brief_calculate_page import BriefCalculateCredit
 
 
 # Ввод данных в блок "Детальный расчёт"
@@ -8,6 +9,10 @@ class DetailedCalculateCredit():
 
     # Заполняем поля анкеты подробного расчёта
     def enter_data_in_detailed_calculate(self):
+        # Заполняем поля Сумма, Взнос и Срок кредита
+        bcc = BriefCalculateCredit()
+        bcc.enter_data_in_brief_calculate()
+
         # Заполняем ФИО и паспортные данные
         second_name = self.browser.find_element(*LocatorsDetailedCalculate.SECOND_NAME_LOC)
         second_name.clear()
