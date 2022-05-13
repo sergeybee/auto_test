@@ -1,5 +1,5 @@
 ## Авто тест кредитного калькулятора на сайте http://creditcalculator.pointschool.ru/ с использованием Selenium и Pytest
-## Tест-кейс https://docs.google.com/document/d/1ILdnEONI576Olapt5jUbUcfUe0i_DmFR/edit
+
 ### Тест-кейс:
 #### 1. Перейти на страницу http://creditcalculator.poi/creditntschool.ru# 
 #### 2. Нажать кнопку «Рассчитать»
@@ -33,3 +33,4 @@
 #### 2. Ежемесячный платеж 9 680 Р
 #### 3. Переплата по кредиту 16 165 Р
 #### 4. Выплаты за весь срок кредита 116 165 Р
+##### Tест-кейс https://docs.google.com/document/d/1ILdnEONI576Olapt5jUbUcfUe0i_DmFR/edit
