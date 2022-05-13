@@ -1,12 +1,11 @@
 import pytest
-from .pages.brief_calculate_page import BriefCalculateCredit
-from .pages.detailed_calculate_page import DetailedCalculateCredit
-from .pages.result_calculate_page import ResultCalculateCredit
 from .pages.base_page import BasePage
+from .pages.calculate_credit_page import CalculateCreditPage
 import time
+import pytest
 
 
-class TestCalculateCreditBase(BasePage):
+class TestCalculateCreditBase(object):
     @pytest.fixture(scope='function', autouse=True)
     def setup(self, browser):
         link = "http://creditcalculator.pointschool.ru"
@@ -21,21 +20,11 @@ class TestCalculateCreditBase(BasePage):
         time.sleep(1)
 
     # Тест "КРАТКОГО РАСЧЁТА"
-    # @pytest.mark.brief_calc
-    def test_brief_calculate(self):
-        bcc = BriefCalculateCredit()
+    def test_calculate_credit(self, browser):
+        link = "http://creditcalculator.pointschool.ru"
+        bcc = CalculateCreditPage(browser, link)
         bcc.enter_data_in_brief_calculate()
-        self.btn_calculate_credit_click()
-
-    # Тест "ПОДРОБНОГО РАСЧЁТА":
-    # @pytest.mark.detailed_calc
-    def test_detailed_calculate(self):
-        dcc = DetailedCalculateCredit()
-        dcc.enter_data_in_detailed_calculate()
-        self.btn_calculate_credit_click()
-
-    # Тест "РЕЗУЛЬТАТОВ РАСЧЁТА"
-    # @pytest.mark.result_calc
-    def test_result_calculate(self):
-        result = ResultCalculateCredit()
-        result.check_all_result_calculate_credit()
+        bcc.enter_data_in_detailed_calculate()
+        bcc.btn_calculate_credit_click()
+        time.sleep(5)
+        bcc.result_calculate_credit()

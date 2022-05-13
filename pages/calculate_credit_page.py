@@ -1,11 +1,11 @@
 from selenium.webdriver.support.ui import Select
-from .locators import LocatorsDetailedCalculate
+from .locators import LocatorsDetailedCalculate, LocatorsBriefCalculate, LocatorsResultCalculate
 from .config import SettingsDataSet as SD
-from .brief_calculate_page import BriefCalculateCredit
 from .base_page import BasePage
 
 
-class BriefCalculateCredit():
+class CalculateCreditPage(BasePage):
+
     # Заполняем поля Сумма, Взнос и Срок кредита
     def enter_data_in_brief_calculate(self):
         field_desired_loan = self.browser.find_element(*LocatorsBriefCalculate.FIELD_DESIRED_IOAN_LOC)
@@ -20,13 +20,8 @@ class BriefCalculateCredit():
         field_credit_term.clear()
         field_credit_term.send_keys(SD.FIELD_CREDIT_TERM)
 
-
-class DetailedCalculateCredit():
-
     # Заполняем поля анкеты подробного расчёта
     def enter_data_in_detailed_calculate(self):
-        # # Заполняем поля Сумма, Взнос и Срок кредита
-        # BriefCalculateCredit.enter_data_in_brief_calculate(self.browser)
 
         # Заполняем ФИО и паспортные данные
         second_name = self.browser.find_element(*LocatorsDetailedCalculate.SECOND_NAME_LOC)
@@ -85,9 +80,6 @@ class DetailedCalculateCredit():
         real_estate = Select(self.browser.find_element(*LocatorsDetailedCalculate.REAL_ESTATE_LOC))
         real_estate.select_by_visible_text(SD.REAL_ESTATE)
 
-
-class ResultCalculateCredit():
-
     def check_message_result_calculate(self):
         field_desired_loan = self.browser.find_element(*LocatorsResultCalculate.CREDIT_MESSAGE_LOC).text
         assert field_desired_loan == SD.CREDIT_MESSAGE, "Нет сообщения КРЕДИТ ПРЕДВАРИТЕЛЬНО ОДОБРЕН"
@@ -110,8 +102,7 @@ class ResultCalculateCredit():
         assert payments_loan_period == SD.PAYMENTS_IOAN_PERIOD, "Выплаты за весь срок кредита не совпадают"
 
     # Методы проверки результатов расчёта в одном месте
-    def check_all_result_calculate_credit(self):
-        self.enter_data_in_brief_and_detailed_calculate()  # Заполняем поля калькулятора данными из тест - кейса
+    def result_calculate_credit(self):
         self.check_message_result_calculate()  # Проверяем, что есть сообщение "Кредит предварительно одобрен"
         self.check_credit_rate()  # Проверяем, что процентная ставка совпадает с данными тест-кейса
         self.check_credit_monthly_payment_full()  # Проверяем, что ежемесячный платеж совпадает с данными тест-кейса
