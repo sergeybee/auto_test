@@ -19,8 +19,8 @@ class TestCalculateCreditBase(object):
         base_page.link_to_question_form_click()         # Нажимаем на кнопку-ссылку "Заполнить анкету"
         time.sleep(1)
 
-    # Тест "КРАТКОГО РАСЧЁТА"
     def test_calculate_credit(self, browser):
+        """ Тест "КРАТКОГО РАСЧЁТА """
         link = "http://creditcalculator.pointschool.ru"
         bcc = CalculateCreditPage(browser, link)
         bcc.enter_data_in_brief_calculate()

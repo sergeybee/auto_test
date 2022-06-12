@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<TestDataSet>
+  <Brief page="Brief">
+    <!-- Данные для Краткого блока -->
+    <DESIRED_IOAN>100000</DESIRED_IOAN>
+    <INITIAL_PAYMENT>0</INITIAL_PAYMENT>
+    <CREDIT_TERM>0</CREDIT_TERM>
+  </Brief>
+  <Detailed page="Detailed">
+    <!-- Данные для Подробного блока (анкеты)-->
+    <SECOND_NAME>Ярцова</SECOND_NAME>
+    <FIRST_NAME>Злата</FIRST_NAME>
+    <MIDDLE_NAME>Васильевна</MIDDLE_NAME>
+    <PASSPORT>4300 542277</PASSPORT>
+    <ISSUED_BY>Нижегородское ГОВД</ISSUED_BY>
+    <ISSUED_DATE>11.11.2011</ISSUED_DATE>
+    <EDUCATION>Высшее</EDUCATION>
+    <SENIORITY>5 лет - 10 лет</SENIORITY>
+    <TERM_WORK_LAST_PLACE>Более 3 лет</TERM_WORK_LAST_PLACE>
+    <CONFIRMATION_INCOME_NDFL>Да</CONFIRMATION_INCOME_NDFL>
+    <WORK_PLACE_BANK_AREA>Да</WORK_PLACE_BANK_AREA>
+    <NET_INCOME>35000</NET_INCOME>
+    <REGISTRATION_PLACE_BANK_AREA>Да</REGISTRATION_PLACE_BANK_AREA>
+    <PREVIOUS_CONFICTION>Нет</PREVIOUS_CONFICTION>
+    <CAR>Да</CAR>
+    <REAL_ESTATE>Да</REAL_ESTATE>
+  </Detailed>
+  <Result page="Result">
+    <!-- Данные для блока с результатами-->
+    <CREDIT_MESSAGE>Кредит предварительно одобрен</CREDIT_MESSAGE>
+    <CREDIT_RATE>28.61 %</CREDIT_RATE>
+    <CREDIT_MOTHLY_PAYMENT_FULL>9 680 Р</CREDIT_MOTHLY_PAYMENT_FULL>
+    <CREDIT_OVERPAYMENT>16 165 Р</CREDIT_OVERPAYMENT>
+    <PAYMENTS_IOAN_PERIOD>116 165 Р</PAYMENTS_IOAN_PERIOD>
+  </Result>
+</TestDataSet>

@@ -8,26 +8,27 @@ class BasePage:
         self.browser = browser
         self.url = url
 
-    # Метод открытия страницы сайта
     def open(self):
+        """ Метод открытия страницы сайта """
         self.browser.get(self.url)
+        self.browser
 
-    # Проверяем, что находимся на сайте "Кредитный калькулятор"
     def should_be_site_credit_calculate(self):
+        """ Проверяем, что находимся на сайте "Кредитный калькулятор" """
         assert "creditcalculator.pointschool.ru" in self.browser.current_url, "Не тот адрес сайта"
 
-    # Проверяем, что есть кнопка "Рассчитать"
     def should_be_btn_calculate(self):
+        """ Проверяем, что есть кнопка "Рассчитать" """
         assert self.browser.find_element(*GeneralLocators.BTN_CALCULATE_LOC), "Нет кнопки BTN_CALCULATE"
 
-    # Нажимаем на кнопку "Рассчитать"
     def btn_calculate_credit_click(self):
+        """ Нажимаем на кнопку "Рассчитать" """
         self.browser.find_element(*GeneralLocators.BTN_CALCULATE_LOC).click()
 
-    # Проверяем, что есть кнопка-ссылка "Заполнить анкету"
     def should_be_link_to_question_form(self):
+        """ Проверяем, что есть кнопка-ссылка "Заполнить анкету" """
         assert self.browser.find_element(*GeneralLocators.LINK_ANKET_LOC), "Не найдена ссылка или элемент на АНКЕТУ"
 
-    # Нажимаем на кнопку-ссылку "Заполнить анкету"
     def link_to_question_form_click(self):
+        """ Нажимаем на кнопку-ссылку "Заполнить анкету" """
         self.browser.find_element(*GeneralLocators.LINK_ANKET_LOC).click()

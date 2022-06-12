@@ -5,13 +5,13 @@ import pytest
 
 def pytest_addoption(parser):
     parser.addoption('--browser',
-                        action='store',
-                        help='select browser chrome or firefox',
-                        default='chrome')
-    parser.addoption('--language',  
-                        action='store', 
-                        default="ru",
-                        help="Choose language: ru or en")
+                     action='store',
+                     help='select browser chrome or firefox',
+                     default='chrome')
+    parser.addoption('--language',
+                     action='store',
+                     default="ru",
+                     help="Choose language: ru or en")
 
 
 @pytest.fixture(scope="function")
