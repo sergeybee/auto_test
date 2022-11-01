@@ -1,4 +1,32 @@
-from .locators import GeneralLocators
+from locators.locators import GeneralLocators
+from config import JSON_FILE_PATH
+import json
+
+
+def read_json_file() -> dict:
+    """ Парсер тестовых данных в JSON документе """
+    try:
+        with open(JSON_FILE_PATH, "r") as f:
+            r_json = json.load(f)
+
+            return r_json
+
+    except IOError as e:
+        print('Ошибка! - не найден файл или директория: %sn' % e)
+
+
+d = read_json_file()
+
+
+def parse_json(data_key, dic) -> str:
+    for k in dic.keys():
+        k_dict = dic.get(k)
+        if data_key in k_dict:
+            var = k_dict[data_key]
+            if type(var) == list:
+                var_list = var[0]
+                return var_list
+            return var
 
 
 class BasePage:
@@ -11,7 +39,6 @@ class BasePage:
     def open(self):
         """ Метод открытия страницы сайта """
         self.browser.get(self.url)
-        self.browser
 
     def should_be_site_credit_calculate(self):
         """ Проверяем, что находимся на сайте "Кредитный калькулятор" """
